@@ -1,0 +1,24 @@
+From 3a512f55481e3fa579f1556bbb2a6bf566f4f927 Mon Sep 17 00:00:00 2001
+From: Vic Lee <llyzs@163.com>
+Date: Thu, 1 Sep 2011 15:14:03 +0800
+Subject: [PATCH] nx: fix libssh 0.5 compatibility.
+
+---
+ remmina-plugins/nx/remminanxsession.c |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/remmina-plugins/nx/remminanxsession.c b/remmina-plugins/nx/remminanxsession.c
+index c702be5..2e57541 100644
+--- a/remmina-plugins/nx/remminanxsession.c
++++ b/remmina-plugins/nx/remminanxsession.c
+@@ -516,6 +516,7 @@ remmina_nx_session_send_command (RemminaNXSession *nx, const gchar *cmdfmt, ...)
+     channel_write (nx->channel, cmd, strlen (cmd));
+     g_free (cmd);
+ 
++    ssh_set_fd_towrite (nx->session);
+     channel_write (nx->channel, "\n", 1);
+ }
+ 
+-- 
+1.7.4.1
+

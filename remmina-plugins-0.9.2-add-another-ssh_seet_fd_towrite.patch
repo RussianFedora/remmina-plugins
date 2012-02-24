@@ -1,0 +1,24 @@
+From 3f6c309ffabd09ad40c87c922944fe5ad0351a22 Mon Sep 17 00:00:00 2001
+From: Vic Lee <llyzs@163.com>
+Date: Thu, 1 Sep 2011 15:23:12 +0800
+Subject: [PATCH] NX: add another ssh_seet_fd_towrite.
+
+---
+ remmina-plugins/nx/remminanxsession.c |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/remmina-plugins/nx/remminanxsession.c b/remmina-plugins/nx/remminanxsession.c
+index 2e57541..37b981d 100644
+--- a/remmina-plugins/nx/remminanxsession.c
++++ b/remmina-plugins/nx/remminanxsession.c
+@@ -840,6 +840,7 @@ remmina_nx_session_tunnel_main_thread (gpointer data)
+             {
+                 for (ptr = buffer, lenw = 0; len > 0; len -= lenw, ptr += lenw)
+                 {
++                    ssh_set_fd_towrite (nx->session);
+                     lenw = channel_write (channels[0], (char*) ptr, len);
+                     if (lenw <= 0)
+                     {
+-- 
+1.7.4.1
+
