@@ -2,7 +2,7 @@
 
 Name:           remmina-plugins
 Version:        0.9.2
-Release:        5%{?dist}.R
+Release:        6%{?dist}
 Summary:        Plugins for Remmina Remote Desktop Client
 
 Group:          Applications/Internet
@@ -192,6 +192,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Mar 27 2012 Arkady L. Shane <ashejn@russianfedora.ru> - 0.9.2-6
+- rebuilt for new freerdp
+
 * Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.9.2-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
